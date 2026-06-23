@@ -1,0 +1,170 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="UTF-8" />
+    <meta
+      name="viewport"
+      content="width=device-width, initial-scale=1, maximum-scale=1.0, user-scalable=no"
+    />
+    <!-- Primary Meta Tags -->
+    <title>Pimple Popper Game</title>
+    <meta name="title" content="Pimple Popper Game" />
+    <meta
+      name="description"
+      content="Pop pimples in the addictive Pimple Popper Game. Can you clear them all?"
+    />
+
+    <!-- Open Graph / Facebook -->
+    <meta property="og:type" content="website" />
+    <meta property="og:url" content="https://pimple-popper.adcrew.us/" />
+    <meta property="og:title" content="Pimple Popper Game" />
+    <meta
+      property="og:description"
+      content="Pop pimples in the addictive Pimple Popper Game. Can you clear them all?"
+    />
+    <meta
+      property="og:image"
+      content="https://pimple-popper.adcrew.us/img/game-screenshot.webp"
+    />
+
+    <!-- Twitter -->
+    <meta property="twitter:card" content="summary_large_image" />
+    <meta property="twitter:url" content="https://pimple-popper.adcrew.us/" />
+    <meta property="twitter:title" content="Pimple Popper Game" />
+    <meta
+      property="twitter:description"
+      content="Pop pimples in the addictive Pimple Popper Game. Can you clear them all?"
+    />
+    <meta
+      property="twitter:image"
+      content="https://pimple-popper.adcrew.us/img/game-screenshot.webp"
+    />
+
+    <!-- Meta Tags Generated with https://metatags.io -->
+    <meta property="og:image" content="./img/girl-01.webp" />
+    <link rel="apple-touch-icon" sizes="57x57" href="./apple-icon-57x57.png" />
+    <link rel="apple-touch-icon" sizes="60x60" href="./apple-icon-60x60.png" />
+    <link rel="apple-touch-icon" sizes="72x72" href="./apple-icon-72x72.png" />
+    <link rel="apple-touch-icon" sizes="76x76" href="./apple-icon-76x76.png" />
+    <link
+      rel="apple-touch-icon"
+      sizes="114x114"
+      href="./apple-icon-114x114.png"
+    />
+    <link
+      rel="apple-touch-icon"
+      sizes="120x120"
+      href="./apple-icon-120x120.png"
+    />
+    <link
+      rel="apple-touch-icon"
+      sizes="144x144"
+      href="./apple-icon-144x144.png"
+    />
+    <link
+      rel="apple-touch-icon"
+      sizes="152x152"
+      href="./apple-icon-152x152.png"
+    />
+    <link
+      rel="apple-touch-icon"
+      sizes="180x180"
+      href="./apple-icon-180x180.png"
+    />
+    <link
+      rel="icon"
+      type="image/png"
+      sizes="192x192"
+      href="./android-icon-192x192.png"
+    />
+    <link
+      rel="icon"
+      type="image/png"
+      sizes="32x32"
+      href="./favicon-32x32.png"
+    />
+    <link
+      rel="icon"
+      type="image/png"
+      sizes="96x96"
+      href="./favicon-96x96.png"
+    />
+    <link
+      rel="icon"
+      type="image/png"
+      sizes="16x16"
+      href="./favicon-16x16.png"
+    />
+    <link rel="manifest" href="./manifest.json" />
+    <meta name="msapplication-TileColor" content="#ffffff" />
+    <meta name="msapplication-TileImage" content="/ms-icon-144x144.png" />
+    <meta name="theme-color" content="#ffffff" />
+    <link rel="stylesheet" href="./css/styles.css" />
+    <script src="./js/game.js"></script>
+    <script src="./js/html2canvas.min.js" defer></script>
+  </head>
+
+  <body
+    onload="initGame()"
+    onmousemove="onMouseMove(event)"
+    ontouchstart="onTouchStart(event)"
+    ondragstart="return false;" 
+    ondrop="return false;"
+    ondblclick="return false;"
+    oncontextmenu="return false;"
+  >
+    <div class="bgimg" style="background-image: url('./img/girl-01.webp')">
+      <div
+        id="home"
+        class="center"
+        style="text-align: center"
+        onclick="startGame()"
+      >
+        <img
+          loading="lazy"
+          src="./img/logo.webp"
+          class="game-logo game-interactable"
+        />
+      </div>
+      <div
+        id="game-board"
+        class="center label"
+        style="text-align: center; display: none"
+        onclick="resetGame()"
+      ></div>
+    </div>
+    <div id="game-area" class="center" style="display: none">
+      <img src="./img/girl-pt-01.webp" id="game-obj" />
+    </div>
+    <div id="game-controls" style="display: none">
+      <div id="timer" class="label label-left">05:58</div>
+      <div id="score" class="label label-right">--/--</div>
+    </div>
+    <div class="container">
+      <div id="branding-logo" onclick="openBrandingLink()"></div>
+    </div>
+
+    <img src="./img/acnacare.webp" id="product" class="shadow-filter" />
+
+    <audio id="soundPop" src="./audio/pop.mp3"></audio>
+    <audio id="squelching01" src="./audio/squelching-01.mp3"></audio>
+    <audio id="squelching02" src="./audio/squelching-02.mp3"></audio>
+    <audio id="squelching03" src="./audio/squelching-03.mp3"></audio>
+    <audio id="squelching04" src="./audio/squelching-04.mp3"></audio>
+
+    <audio id="bg-music-00" loop>
+      <source src="./audio/Game_Time_mp3_1703587883.mp3" type="audio/mpeg" />
+    </audio>
+
+    <audio id="bg-music-01" loop>
+      <source src="./audio/desolate-world-121196.mp3" type="audio/mpeg" />
+    </audio>
+
+    <audio id="bg-music-02" loop>
+      <source
+        src="./audio/Hero_Challenge_mp3_1710900853.mp3"
+        type="audio/mpeg"
+      />
+    </audio>
+  </body>
+</html>
